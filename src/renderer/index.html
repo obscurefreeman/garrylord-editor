@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electron Notes</title>
+  <link id="theme-style" rel="stylesheet" href="styles/default.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>我的笔记</h1>
+        <button id="new-note-btn">新建笔记</button>
+        <div class="theme-selector">
+          <label for="theme-select">主题:</label>
+          <select id="theme-select">
+            <option value="default">默认</option>
+            <option value="light">明亮</option>
+            <option value="dark">暗黑</option>
+          </select>
+        </div>
+      </div>
+      <div class="notes-list" id="notes-list">
+        <!-- 笔记列表将在这里动态生成 -->
+      </div>
+    </div>
+    <div class="note-editor">
+      <input type="text" id="note-title" placeholder="笔记标题">
+      <textarea id="note-content" placeholder="开始写作..."></textarea>
+      <div class="editor-actions">
+        <button id="save-btn">保存</button>
+        <button id="delete-btn">删除</button>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
