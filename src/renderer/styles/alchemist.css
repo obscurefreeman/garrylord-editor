@@ -1,17 +1,17 @@
 :root {
-  --bg-color: #1a1a1a;  /* 深色背景，突出神秘感 */
-  --sidebar-bg: #2a1a2f;  /* 深紫色侧边栏，呼应炼金术的魔法氛围 */
-  --text-color: #e6d8a0;  /* 浅金色文字，易读且符合主题 */
-  --border-color: #3a2a3f;  /* 深紫色边框，与侧边栏协调 */
-  --active-item-bg: #4a3a4f;  /* 更亮的紫色作为激活项背景 */
-  --theme-color: #ffcc00;  /* 金色主题色，象征炼金术的黄金 */
-  --theme-color-outline: #ffdd33;  /* 更亮的金色轮廓 */
-  --button-text: #1a1a1a;  /* 深色按钮文字，与背景形成对比 */
-  --error-color: #ff3333;  /* 红色错误提示，保持醒目 */
-  --heading1-color: #ffcc00;  /* 金色一级标题 */
-  --heading2-color: #cc9900;  /* 暗金色二级标题 */
-  --heading3-color: #ffdd33;  /* 亮金色三级标题 */
-  --input-bg: #2a1a2f;  /* 深紫色输入框背景 */
-  --scrollbar-width: 10px;  /* 滚动条宽度保持一致 */
-  --transition-speed: 0.3s;  /* 过渡速度保持一致 */
-} 
+  --bg-color: #26192a;
+  --sidebar-bg: #2a1a2f;
+  --text-color: #e6d8a0;
+  --border-color: #3a2a3f;
+  --active-item-bg: #4a3a4f;
+  --theme-color: #ffcc00;
+  --theme-color-outline: #ffdd33;
+  --button-text: #1a1a1a;
+  --error-color: #ff3333;
+  --heading1-color: #ffcc00;
+  --heading2-color: #cc9900;
+  --heading3-color: #ffdd33;
+  --input-bg: #2a1a2f;
+  --scrollbar-width: 10px;
+  --transition-speed: 0.3s;
+}
