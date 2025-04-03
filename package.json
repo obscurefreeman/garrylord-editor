@@ -11,12 +11,33 @@
   "keywords": [],
   "author": "晦涩弗里曼",
   "license": "Apache-2.0",
+  "build": {
+    "appId": "com.garrylord-editor.app",
+    "productName": "GarryLord Editor",
+    "win": {
+      "icon": "assets/favicon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
   "devDependencies": {
     "electron": "^35.1.3",
     "electron-builder": "^25.1.8",
     "electron-packager": "^17.1.2"
   },
   "dependencies": {
-    "fs-extra": "^11.3.0"
+    "fs-extra": "^11.3.0",
+    "tar": "^6.2.1"
   }
 }

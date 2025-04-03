@@ -1,0 +1,421 @@
+{
+    "player": {
+        "greeting": [
+            "Hi, /name/, how have you been?",
+            "How's your day going, /name/?",
+            "So glad to meet you!",
+            "What have you been up to lately, /name/?",
+            "You seem in good spirits, /name/."
+        ],
+        "negotiate": [
+            "I'm here to negotiate!",
+            "I have an idea that might benefit us both, /name/.",
+            "If we can reach an agreement, things will be much easier.",
+            "I understand your difficulties, but we need to compromise.",
+            "/name/, there's something I need to discuss with you.",
+            "This is important, we need to talk it over.",
+            "How about this, let's both make some concessions?",
+            "I need to talk to you."
+        ],
+        "trade": [
+            "Do you have anything special here?",
+            "Your goods are great, /name/!",
+            "Got any good stuff for sale, /name/?",
+            "I'd like to buy some of your things, /name/.",
+            "Heard you've got some unique items here?",
+            "Can I take a look at your goods?",
+            "Hi, /name/, any recommendations for today?",
+            "I'm quite interested in your products.",
+            "Could you tell me more about your goods?",
+            "I'm looking for something unique.",
+            "Do you think today's deal will go well?"
+        ],
+        "leave": [
+            "Let's call it a day for now.",
+            "Good luck, /name/!",
+            "See you around, /name/!",
+            "Take care, /name/!",
+            "Until we meet again, /name/!",
+            "I'll catch up with you later.",
+            "See you later.",
+            "Let's continue this later.",
+            "I'll buy you a drink next time."
+        ]
+    },
+    "npc": {
+        "greeting": {
+            "combine": [
+                "Get out of here, /player/. This area is not safe.",
+                "Identify yourself and state your purpose, /player/.",
+                "Seen any suspicious people around lately, /player/?",
+                "Follow the orders, no questions asked, /player/.",
+                "Your gear needs inspection, /player/."
+            ],
+            "resistance": [
+                "Hey /player/, anything new lately?",
+                "Watch your back, /player/. A Combine patrol just passed by.",
+                "/player/, we got to figure out how we get more supplies.",
+                "How's it going on your end, /player/?",
+                "Hi /player/. How's your day going?"
+            ],
+            "union": [
+                "Hey /player/, how's the workload today?",
+                "Past experience doesn't apply anymore, /player/.",
+                "Our enemies are about to face tough times, /player/.",
+                "My wages got delayed again, /player/. Got any ideas?",
+                "What brings you here, /player/?"
+            ],
+            "warlord": [
+                "/player/, how's my crew been performing?",
+                "This territory belongs to us, /player/.",
+                "Got any loot recently, /player/?",
+                "Stay sharp, /player/. Someone's eyeing our turf.",
+                "We need more manpower, /player/."
+            ],
+            "church": [
+                "This world needs faith, /player/.",
+                "Have you... heard the voices from below recently?",
+                "There's a light at the end of the alley. Come find us, /player/.",
+                "Shh... someone's watching us.",
+                "Come join our service, /player/."
+            ],
+            "bandit": [
+                "Hey /player/, any good deals lately?",
+                "Be careful, /player/. The cops are cracking down hard.",
+                "We need to find a new hideout, /player/.",
+                "I'm a bit short on cash, /player/. Know any good money-making schemes?",
+                "Don't trust anyone, /player/. Not even me."
+            ],
+            "other": [
+                "How's it going, /player/?",
+                "This area isn't safe, /player/. Watch yourself.",
+                "Got any interesting news, /player/?",
+                "Didn't expect to see you in /map/, /player/.",
+                "If I were you, I wouldn't come to this place, /player/."
+            ]
+        },
+        "idle": {
+            "combine": [
+                "Stay alert, the Resistance could be anywhere.",
+                "Any breach of discipline will be severely punished.",
+                "Maintain formation, don't fall behind!",
+                "This place is so boring, I can't wait to get back to the base.",
+                "Anyone got some military gum? I'm feeling sleepy.",
+                "This patrol route is so long, when will it end...",
+                "That damn floor last night left my back aching.",
+                "Found Lambda graffiti, looks like the Resistance's supply point is here.",
+                "Civilians are undergoing thought correction, maintain 50-meter security radius.",
+                "Radio signals are being jammed, probably Resistance's electronic warfare equipment.",
+                "Outpost 17's auto-turrets need recalibration of firing parameters.",
+                "Suppression protocol updated to version 1.14, all units sync tactical data.",
+                "If I find out who used my gas mask as an ashtray, they're dead meat.",
+                "Suspicious activity in the subway tunnels, take two houndeyes to check it out."
+            ],
+            "resistance": [
+                "Running low on ammo... hope supplies arrive soon.",
+                "This damn gun's acting up again, anyone got tools to fix it?",
+                "My gas mask's gone missing again, what the hell!",
+                "Don't let your guard down, the combine could strike any moment.",
+                "I'm so sick of these canned rations, I'd kill for some fresh veggies.",
+                "This damn place is so humid, my clothes are sticking to my skin.",
+                "Mosquitoes were buzzing in my ear all night, couldn't sleep a wink.",
+                "This damn radio only picks up combine propaganda, I want real news.",
+                "Hey, you ever play the old arcade machines at Black Mesa? Those were the days!",
+                "Wonder how my cat's doing back home... she loved my fish stew.",
+                "This damn weather's freezing, I could use a thick coat.",
+                "Hey guys, anyone got a deck of cards? Let's play some Texas Hold'em.",
+                "This coffee tastes like mud, and I was counting on it to wake me up.",
+                "Hey, you heard? There's a bar opening underground in City 17.",
+                "The Combine owes us big time, and we'll make them pay with interest!",
+                "We're not alone in this fight, the people of /map/ are fully supporting us!",
+                "This map's all wrinkled, the edges are worn out and the routes are blurry.",
+                "It's so quiet here you could hear a pin drop, I can even hear my own heartbeat, creepy.",
+                "You hear that rustling sound? Like something's crawling in the pipes...",
+                "My boots are leaking again, my feet are gonna rot at this rate.",
+                "Anyone know what time it is?",
+                "Hands off my weapon, it's my lifeline!",
+                "Patrolling in the dark around here is no joke."
+            ],
+            "union": [
+                "The noise in this factory is killing me.",
+                "My back's acting up again, they should pay me double.",
+                "This damn machine's broken again, need to call maintenance.",
+                "Did we meet today's production quota?",
+                "These work clothes are falling apart, they won't even replace them.",
+                "I can barely keep my eyes open... thanks to last night's overtime shift.",
+                "The cafeteria food tastes like reheated leftovers from yesterday.",
+                "Heard the factory next door went on strike, maybe we should show the boss what's what.",
+                "The pay's too low, can't even support my family.",
+                "Those capitalists just keep exploiting us, we'll make them pay!",
+                "Another batch of parts went missing from the assembly line, probably stolen for the black market.",
+                "The new guy almost got his fingers caught in the conveyor belt!",
+                "The safety supervisor's shoes are so shiny you can see your reflection, while we can't even get new gloves.",
+                "Quality control keeps mixing defective products, and we'll have to redo them at month-end.",
+                "The ventilation system's been broken for three days, the lead fumes are making my eyes water."
+            ],
+            "warlord": [
+                "This territory's perfect for a base.",
+                "Need to get some good booze tonight to treat the boys.",
+                "Damn, this gun needs maintenance.",
+                "Things are heating up lately, everyone stay sharp.",
+                "You see that? Something's moving over there.",
+                "We need to plan our next move carefully.",
+                "You hear that rumbling? The railway must be nearby.",
+                "Make way, some big shot's coming through.",
+                "Only reason I came to this backwater was for the pretty girls.",
+                "Frisys runs /map/, and you're all dead meat!",
+                "Drag that traitor to the acid pool, let everyone see the price of betrayal.",
+                "These bulletproof vests are falling apart, did logistics cut corners again?",
+                "Damn, we're running out of diesel, if we don't get fuel soon, the boss will skin me alive.",
+                "The med station's out of painkillers? Send the boys to raid a clinic!",
+                "Anyone caught hoarding supplies will be nailed to barbed wire for the crows.",
+                "The recon team sent to Nova Mine hasn't reported in for three days, probably got ambushed by barnacles.",
+                "Those church fanatics are at it again with their human experiments. We should blow their lab sky high one of these days.",
+                "The smuggling route from /map/ to City 17 is overrun with antlions. Send the demolition team to clear a path.",
+                "Those new recruits actually thought about joining the Combine. They're now part of the concrete foundation."
+            ],
+            "church": [
+                "Donations have been pretty slim lately, we need to step up our fundraising game.",
+                "Heard this holy water can cure anything, want to give it a try?",
+                "Bring the candles, it's time for the ritual.",
+                "The church renovations are going to cost a fortune, need to raise funds.",
+                "You know, some secrets are only meant to be shared in the basement.",
+                "The hymns echo through the dome, cleansing the souls of the faithful.",
+                "Gear up, we need to purify this area.",
+                "This church needs repairs.",
+                "Last night's ritual went well, but we need more offerings.",
+                "Heard the church next door made a killing, we need to step up our game.",
+                "That new believer looks loaded. Let's figure out how to squeeze more donations out of him.",
+                "We need to soundproof the confession booth better. That widow's sobbing last time gave me a headache.",
+                "The statue's right eye stopped weeping blood. We need to replace the tomato juice tube in its socket.",
+                "Turn on the ventilation system during midnight mass. Too much of that hallucinogenic incense could be deadly.",
+                "If anyone asks about the screams from the basement at night, just say it's demons being punished.",
+                "Let's buy some cheap antibiotics from the black market and mix them with holy water. We can mark it up by 30%."
+            ],
+            "bandit": [
+                "/map/ has high ground on both ends and low ground in the middle - perfect for an ambush.",
+                "Buddy, got a light?",
+                "This piece of junk needs replacing.",
+                "Things are getting messy in /map/, bad for business.",
+                "This loot's good, should fetch a nice price.",
+                "We need to plan our route, who's got the map?",
+                "This heat's killing me, need to find some shade.",
+                "Heard there's a merchant caravan coming through, let's hit it!",
+                "Damn curfew again tonight, we need to find a way out.",
+                "That shopkeeper looked at us like we were thieves last night. I bet he added a couple extra zeros to the bill!",
+                "The jewelry store on 17th is getting new stock the day after tomorrow. Their windows are still single-pane.",
+                "The transport convoy passes through /map/ every Wednesday. Remember to bring grenades to say hello.",
+                "The black market got a shipment of modified shotguns that can pierce riot shields. Let's grab a couple to test them out.",
+                "The union security has a 15-minute gap during shift change. Plenty of time to strip the copper coils from their transformers.",
+                "Heard the church is rolling in cash these days. Let's just swipe those golden candlesticks from their altar."
+            ],
+            "other": [
+                "Time flies. It's almost the end of the month and I still haven't figured out how to pay the rent.",
+                "Nowhere's safe these days.",
+                "My passport got stolen at the hotel!",
+                "No, actually, I think the opposite, nothing new lately.",
+                "The view here's great, I took a photo.",
+                "I think I'm lost.",
+                "You seen my friend around /map/?",
+                "Heard there's a market nearby, I'm gonna check it out!",
+                "I can sleep anywhere, even with just a blanket.",
+                "Be careful, there's lots of wildlife near /map/.",
+                "I wonder what's on the other side of /map/.",
+                "I'm thinking of writing a book. How about calling it 'The Autobiography of /name/'?",
+                "You know what? I took down a hunter bare-handed in the city.",
+                "Spent last night under the bridge in /map/. Almost had my toes chewed off by rats.",
+                "Found half of a 'Militia Training Manual' in the junkyard. It's not even good enough for toilet paper - the ink smudges.",
+                "Heard there's a group east of City 17 trading homemade alcohol for bullets. That's a good deal.",
+                "Helped the union transport some goods yesterday. Found a whole stash of unregistered pulse rifles hidden in the container's false bottom."
+            ]
+        },
+        "attack": {
+            "combine": [
+                "Open fire! Eliminate these traitors!",
+                "Found you, /victim/!",
+                "Drop your weapons!",
+                "Put down your weapons or we'll shoot!",
+                "We're under attack!",
+                "Capture /victim/!",
+                "Don't let /victim/ escape!",
+                "You want to test the law?",
+                "We've got a situation here in /map/.",
+                "Freeze, I'm gonna shoot!"
+            ],
+            "resistance": [
+                "Take this, /victim/!",
+                "Open fire!",
+                "I see them, get ready to fight!",
+                "Want some extra holes in your body, /victim/?",
+                "We've got hostiles!",
+                "Take cover!",
+                "Suppress them!",
+                "Eat lead, /victim/!",
+                "You see that?",
+                "You dare show your face, /victim/?",
+                "Keep your distance!",
+                "Do something!"
+            ],
+            "union": [
+                "Comrades, unite!",
+                "We're under attack!",
+                "Protect yourselves!",
+                "Don't let them succeed!",
+                "Someone's shooting!",
+                "The enemy's upon us.",
+                "Damn it.",
+                "What are you waiting for? Take cover!",
+                "You bunch of scum!",
+                "Grab your wrenches! Let's show them the might of the working class!",
+                "The assembly line can stop, but the union's dignity must stand!",
+                "Hear that? That's the alarm from the loading dock!"
+            ],
+            "warlord": [
+                "Kill them all!",
+                "Let's show them what we're made of!",
+                "Grab your weapons! Let these bastards know who runs /map/!",
+                "Who's the fool daring to cause trouble in Lord Frisys's territory? Looking to die?",
+                "For Lord Frisys, kill them all!",
+                "Dragons must coil, tigers must crouch.",
+                "You got some nerve, /victim/!",
+                "I hope you've written your will, /victim/.",
+                "The gallows are ready for you, /victim/!",
+                "The last guy who looked at me like that, his fingers are still in formaldehyde!",
+                "You think the water treatment plant's water is always red by coincidence?",
+                "You're not even fit to be a roadblock, /victim/!",
+                "Surrender? Too late now! I'll use your blood to teach others a lesson!"
+            ],
+            "church": [
+                "Heretics, face judgment!",
+                "For the glory of the church, destroy them!",
+                "Purify these unclean ones!",
+                "You've seen what you shouldn't have, /victim/!",
+                "Traitor spotted!",
+                "/victim/, you'll need to buy double indulgences!",
+                "Repent, /victim/, this is your last chance!",
+                "You shouldn't be here, /victim/!"
+            ],
+            "bandit": [
+                "Brothers, attack!",
+                "/victim/, hand over everything valuable!",
+                "If you want to live, leave your stuff!",
+                "We'll be rich after this job!",
+                "Don't let them get away, chase them!",
+                "You can't hide for long, /victim/!"
+            ],
+            "other": [
+                "Don't push me, /victim/!",
+                "Looks like someone's gonna bleed today!",
+                "Guess I need to stretch my muscles today!",
+                "You're messing with the wrong person, /victim/!",
+                "If you insist on fighting, bring it on!",
+                "I didn't want trouble, but you asked for it!",
+                "Don't think I'm an easy target, /victim/!",
+                "Looks like I need to teach you some manners today!"
+            ]
+        },
+        "kill": {
+            "combine": [
+                "Goodbye, /victim/.",
+                "Is that all you've got, /victim/?",
+                "This is what happens when you mess with the Combine, /victim/.",
+                "Your resistance is futile, /victim/!",
+                "The combine salutes you.",
+                "You shouldn't have resisted, /victim/.",
+                "/victim/ is down.",
+                "Suspect down.",
+                "He's down.",
+                "Mission accomplished.",
+                "No more business for /victim/ here.",
+                "Looks like /victim/ won't be seeing the inside of a cell.",
+                "Run, run!",
+                "Should've thought twice before messing with us, /victim/.",
+                "Is that the best you can do, /victim/?",
+                "Your weapons are like toys, completely useless."
+            ],
+            "resistance": [
+                "I won't go easy on you, /victim/!",
+                "This one's specially for you, /victim/!",
+                "Seems like you're all talk and no action, /victim/.",
+                "Someone's gonna have to clean up /victim/'s mess.",
+                "Another body in /map/, rest in peace, /victim/.",
+                "Haha, /victim/, better watch your back in your next life!",
+                "You were too reckless, /victim/.",
+                "You shouldn't have come here, /victim/."
+            ],
+            "union": [
+                "This is your end, /victim/!",
+                "You had it coming.",
+                "Cheers! To taking down /victim/!",
+                "Here's your bullets back, /victim/!",
+                "Come to me, /victim/!"
+            ],
+            "warlord": [
+                "The last guy who acted tough like you, the grass on his grave is two meters high now.",
+                "Go tell those idiots in /map/ who's really in charge here!",
+                "I took out /victim/!",
+                "Anyone else wanna end up like /victim/?",
+                "Another enemy down, our territory just got bigger!",
+                "Let's hang /victim/'s head on the street lamp!",
+                "This neighborhood belongs to us now!"
+            ],
+            "church": [
+                "Judgment Day is upon us, /victim/!",
+                "This is the fate of all heretics!",
+                "Another sacrifice for tonight.",
+                "Hahahaha!",
+                "Keep going, wipe them all out.",
+                "The church bells will toll for you.",
+                "Behold, another lost soul has returned to the Lord's embrace."
+            ],
+            "bandit": [
+                "Haha, another big score!",
+                "Nice job, boys!",
+                "Anyone else wanna be like /victim/?",
+                "Got you, /victim/.",
+                "Looks like /victim/'s luck has run out.",
+                "Another problem solved: /victim/."
+            ],
+            "other": [
+                "Maybe you'll learn some respect in your next life, /victim/.",
+                "Go to hell, /victim/.",
+                "You brought this upon yourself, /victim/.",
+                "This is what I'm protecting, /victim/.",
+                "Things are going smoothly.",
+                "Hope this is the last one.",
+                "Who wants bacon?",
+                "Those who don't plan to keep their promises don't consider the difficulties when making them."
+            ]
+        },
+        "response": {
+            "greeting": [
+                "Ah, /player/, long time no see!",
+                "Nice weather today, isn't it? I was just about to visit City 17.",
+                "Hey, /player/! Didn't expect to see you in /map/.",
+                "Great to see you, /player/! I was just looking for someone to chat about recent events.",
+                "/player/! Perfect timing, I was just talking about you with a friend."
+            ],
+            "negotiate": [
+                "What's going on?",
+                "I was just about to discuss this with you, /player/.",
+                "You're right, we really need to talk this over.",
+                "I was just about to ask for the details.",
+                "Speak up, my time is precious."
+            ],
+            "trade": [
+                "Of course! I bet you'll be interested in this.",
+                "You came at the right time, /player/, check this out.",
+                "Speaking of goods, I've got some weapons here you might like.",
+                "I'm just organizing new arrivals, want to see if there's anything you need?",
+                "/player/, you always find the good stuff! How about checking out this new batch of weapons?"
+            ],
+            "leave": [
+                "Alright, /player/, feel free to drop by anytime, you're always welcome here.",
+                "Take care, /player/! If you run into any trouble, just come find me.",
+                "Let's catch up another time, I've got some things to take care of.",
+                "Goodbye, /player/! Hope to hear good news from you next time we meet.",
+                "Alright, /player/, let's talk again some other time."
+            ]
+        }
+    }
+} 
