@@ -74,36 +74,40 @@ document.addEventListener('DOMContentLoaded', async () => {
         await loadFiles()
         validateJson()
         
-        if (structuredView.style.display !== 'none') {
-          try {
-            const jsonData = JSON.parse(response.content)
-            renderStructuredView(jsonData)
-          } catch {
-            structuredView.style.display = 'none'
-            jsonContent.style.display = 'block'
-            toggleViewBtn.textContent = 'Structured View'
-          }
+        try {
+          const jsonData = JSON.parse(response.content)
+          renderStructuredView(jsonData)
+          structuredView.style.display = 'block'
+          jsonContent.style.display = 'none'
+          toggleViewBtn.textContent = 'Raw JSON'
+        } catch (err) {
+          // 如果 JSON 无效，回退到原始视图
+          structuredView.style.display = 'none'
+          jsonContent.style.display = 'block'
+          toggleViewBtn.textContent = 'Structured View'
+          showJsonError('Invalid JSON: ' + err.message)
         }
       }
     }
   
     // 切换视图
     function toggleView() {
-      if (structuredView.style.display === 'none') {
+      if (jsonContent.style.display === 'none') {
+        // 当前在结构化视图中，切换到原始视图
+        structuredView.style.display = 'none'
+        jsonContent.style.display = 'block'
+        toggleViewBtn.textContent = 'Structured View'
+      } else {
+        // 当前在原始视图中，切换到结构化视图
         try {
           const jsonData = JSON.parse(jsonContent.value)
           renderStructuredView(jsonData)
           structuredView.style.display = 'block'
           jsonContent.style.display = 'none'
           toggleViewBtn.textContent = 'Raw JSON'
-          structuredView.scrollTop = 0
         } catch (err) {
           showJsonError('Cannot switch view: ' + err.message)
         }
-      } else {
-        structuredView.style.display = 'none'
-        jsonContent.style.display = 'block'
-        toggleViewBtn.textContent = 'Structured View'
       }
     }
   
@@ -331,9 +335,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         const template = await window.electronAPI.loadTemplate(templateName)
         jsonContent.value = JSON.stringify(template, null, 2)
         
-        structuredView.style.display = 'none'
-        jsonContent.style.display = 'block'
-        toggleViewBtn.textContent = 'Structured View'
+        // 默认显示结构化视图
+        try {
+          renderStructuredView(template)
+          structuredView.style.display = 'block'
+          jsonContent.style.display = 'none'
+          toggleViewBtn.textContent = 'Raw JSON'
+        } catch (err) {
+          // 如果有错误，回退到原始视图
+          structuredView.style.display = 'none'
+          jsonContent.style.display = 'block'
+          toggleViewBtn.textContent = 'Structured View'
+        }
         
         fileName.focus()
       } catch (err) {
@@ -428,4 +441,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     jsonContent.addEventListener('input', () => {
       validateJson()
     })
+
+    // 更新切换按钮的初始文本
+    toggleViewBtn.textContent = 'Raw JSON'
 })
