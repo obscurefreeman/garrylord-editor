@@ -71,9 +71,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         currentFile = { name: fileName }
         document.getElementById('file-name').value = fileName
         jsonContent.value = response.content
-        await loadFiles() // 刷新列表以更新活动状态
+        await loadFiles()
         validateJson()
-        renderStructuredView(JSON.parse(response.content))
+        
+        if (structuredView.style.display !== 'none') {
+          try {
+            const jsonData = JSON.parse(response.content)
+            renderStructuredView(jsonData)
+          } catch {
+            structuredView.style.display = 'none'
+            jsonContent.style.display = 'block'
+            toggleViewBtn.textContent = 'Structured View'
+          }
+        }
       }
     }
   
@@ -86,6 +96,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           structuredView.style.display = 'block'
           jsonContent.style.display = 'none'
           toggleViewBtn.textContent = 'Raw JSON'
+          structuredView.scrollTop = 0
         } catch (err) {
           showJsonError('Cannot switch view: ' + err.message)
         }
@@ -319,6 +330,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         const template = await window.electronAPI.loadTemplate(templateName)
         jsonContent.value = JSON.stringify(template, null, 2)
+        
+        structuredView.style.display = 'none'
+        jsonContent.style.display = 'block'
+        toggleViewBtn.textContent = 'Structured View'
+        
         fileName.focus()
       } catch (err) {
         showJsonError(`Failed to load ${templateName} template: ${err.message}`)
