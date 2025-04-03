@@ -406,35 +406,40 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     // 主题功能
     async function setupTheme() {
-      // 从styles目录获取可用主题
       const themes = await window.electronAPI.getAvailableThemes();
-      
-      // 清空并填充主题选择器
       themeSelect.innerHTML = '';
+      
       themes.forEach(theme => {
         const option = document.createElement('option');
         option.value = theme;
         option.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
         themeSelect.appendChild(option);
       });
-
-      // 设置保存的主题或第一个可用主题
+    
+      // 优先使用保存的主题，否则使用default
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme && themes.includes(savedTheme)) {
         themeSelect.value = savedTheme;
-      } else if (themes.length > 0) {
-        themeSelect.value = themes[0];
-        localStorage.setItem('theme', themes[0]);
+      } else {
+        themeSelect.value = 'default';
       }
       
       changeTheme();
     }
   
     function changeTheme() {
-      const theme = themeSelect.value
-      const themeLink = document.getElementById('theme-style')
-      themeLink.href = `styles/${theme}.css`
-      localStorage.setItem('theme', theme)
+      const theme = themeSelect.value;
+      const themeVarsLink = document.getElementById('theme-vars');
+      
+      if (theme === 'default') {
+        // 如果是默认主题，不需要加载额外的变量
+        themeVarsLink.href = '';
+      } else {
+        // 加载对应主题的变量定义
+        themeVarsLink.href = `styles/${theme}.css`;
+      }
+      
+      localStorage.setItem('theme', theme);
     }
   
     // 实时JSON验证
