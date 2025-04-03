@@ -230,6 +230,7 @@ body {
   box-sizing: border-box;
   height: auto;
   outline: none; /* 移除默认的蓝色轮廓 */
+  transition: all var(--transition-speed) linear;
 }
 
 .json-textarea:focus {
@@ -271,6 +272,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   outline: none;
+  transition: all var(--transition-speed) linear;
 }
 
 #file-name:focus {
@@ -294,6 +296,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   outline: none;
+  transition: all var(--transition-speed) linear;
 }
 
 #json-content:focus {

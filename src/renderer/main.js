@@ -137,10 +137,20 @@ document.addEventListener('DOMContentLoaded', async () => {
           textarea.value = value.join('\n')
           textarea.dataset.key = fullKey
           
+          // 添加自适应高度功能
+          const adjustHeight = (e) => {
+            e.target.style.height = 'auto'
+            e.target.style.height = e.target.scrollHeight + 'px'
+          }
+          
           textarea.addEventListener('input', (e) => {
             const newValue = e.target.value.split('\n').filter(line => line.trim() !== '')
             updateStructuredData(fullKey, newValue)
+            adjustHeight(e)
           })
+          
+          // 添加点击事件来调整高度
+          textarea.addEventListener('click', adjustHeight)
           
           section.appendChild(textarea)
           structuredView.appendChild(section)
@@ -199,10 +209,20 @@ document.addEventListener('DOMContentLoaded', async () => {
           textarea.value = value.join('\n')
           textarea.dataset.key = fullKey
           
+          // 添加自适应高度功能
+          const adjustHeight = (e) => {
+            e.target.style.height = 'auto'
+            e.target.style.height = e.target.scrollHeight + 'px'
+          }
+          
           textarea.addEventListener('input', (e) => {
             const newValue = e.target.value.split('\n').filter(line => line.trim() !== '')
             updateStructuredData(fullKey, newValue)
+            adjustHeight(e)
           })
+          
+          // 添加点击事件来调整高度
+          textarea.addEventListener('click', adjustHeight)
           
           section.appendChild(textarea)
           container.appendChild(section)
