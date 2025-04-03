@@ -54,6 +54,15 @@ body {
   transition: background-color 0.2s ease;
 }
 
+.window-controls button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.window-controls #close-btn:hover {
+  background-color: var(--error-color);
+  color: white;
+}
+
 .app-container {
   display: flex;
   height: calc(100vh - 1.875rem);

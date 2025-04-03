@@ -99,7 +99,7 @@ ipcMain.handle('delete-json', async (event, name) => {
 
 ipcMain.handle('load-template', async (event, type) => {
   try {
-    const templatePath = path.join(__dirname, 'templates', `template_${type}.json`)
+    const templatePath = path.join(__dirname, 'templates', `${type}`)
     const data = await fs.promises.readFile(templatePath, 'utf-8')
     return JSON.parse(data)
   } catch (err) {
