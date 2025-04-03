@@ -4,14 +4,15 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "npx electron .",
-    "build": "electron-builder"
+    "start": "electron .",
+    "build": "electron-builder",
+    "dist": "electron-builder --dir"
   },
   "keywords": [],
-  "author": "",
+  "author": "obscurefreeman",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^33.0.2",
+    "electron": "^35.1.3",
     "electron-builder": "^25.1.8",
     "electron-packager": "^17.1.2"
   },
