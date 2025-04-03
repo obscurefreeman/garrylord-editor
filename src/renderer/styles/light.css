@@ -5,6 +5,7 @@
     --border-color: #ddd;
     --active-item-bg: #e0e0e0;
     --button-bg: #5a9de2;
+    --button-text: white;
   }
 
   body {

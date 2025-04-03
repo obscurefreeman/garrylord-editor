@@ -1,3 +1,13 @@
+// 在DOMContentLoaded事件监听器开头添加：
+const minimizeBtn = document.getElementById('minimize-btn')
+const maximizeBtn = document.getElementById('maximize-btn')
+const closeBtn = document.getElementById('close-btn')
+
+// 添加事件监听器
+minimizeBtn.addEventListener('click', () => window.electronAPI.minimizeWindow())
+maximizeBtn.addEventListener('click', () => window.electronAPI.maximizeWindow())
+closeBtn.addEventListener('click', () => window.electronAPI.closeWindow())
+
 document.addEventListener('DOMContentLoaded', async () => {
     // DOM 元素
     const notesList = document.getElementById('notes-list')

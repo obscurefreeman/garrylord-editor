@@ -90,15 +90,3 @@ ipcMain.handle('delete-note', async (event, name) => {
     return { success: false }
   }
 })
-// 窗口控制函数
-function minimizeWindow() {
-  window.ipc.postMessage('window-minimize');
-}
-
-function maximizeWindow() {
-  window.ipc.postMessage('window-maximize');
-}
-
-function closeWindow() {
-  window.ipc.postMessage('window-close');
-}

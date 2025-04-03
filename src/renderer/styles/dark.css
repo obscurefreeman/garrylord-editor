@@ -4,7 +4,8 @@
     --text-color: #d4d4d4;
     --border-color: #3c3c3c;
     --active-item-bg: #2d2d2d;
-    --button-bg: #0e639c;
+    --button-bg: #ff9900;
+    --button-text: black;
   }
     
   body {
