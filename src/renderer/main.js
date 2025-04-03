@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     // 初始化
     await loadFiles()
-    setupTheme()
+    await setupTheme()
   
     // 事件监听
     saveBtn.addEventListener('click', saveCurrentFile)
@@ -196,10 +196,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   
     // 主题功能
-    function setupTheme() {
-      const savedTheme = localStorage.getItem('theme') || 'default'
-      themeSelect.value = savedTheme
-      changeTheme()
+    async function setupTheme() {
+      // 从styles目录获取可用主题
+      const themes = await window.electronAPI.getAvailableThemes();
+      
+      // 清空并填充主题选择器
+      themeSelect.innerHTML = '';
+      themes.forEach(theme => {
+        const option = document.createElement('option');
+        option.value = theme;
+        option.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
+        themeSelect.appendChild(option);
+      });
+
+      // 设置保存的主题或第一个可用主题
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme && themes.includes(savedTheme)) {
+        themeSelect.value = savedTheme;
+      } else if (themes.length > 0) {
+        themeSelect.value = themes[0];
+        localStorage.setItem('theme', themes[0]);
+      }
+      
+      changeTheme();
     }
   
     function changeTheme() {

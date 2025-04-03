@@ -1,14 +1,14 @@
 :root {
-  --bg-color: #f5f5f5;
-  --sidebar-bg: #e0e0e0;
-  --text-color: #333;
-  --border-color: #ccc;
-  --active-item-bg: #d0d0d0;
-  --button-bg: #4a90e2;
-  --button-text: white;
+  --bg-color: #1e1e1e;
+  --sidebar-bg: #252526;
+  --text-color: #d4d4d4;
+  --border-color: #3c3c3c;
+  --active-item-bg: #2d2d2d;
+  --button-bg: #ff9900;
+  --button-text: black;
   --error-color: #e74c3c;
 }
-
+  
 body {
   margin: 0;
   padding: 0;

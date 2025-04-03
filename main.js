@@ -124,3 +124,17 @@ ipcMain.handle('get-templates', async () => {
     return []
   }
 })
+
+ipcMain.handle('get-available-themes', async () => {
+  try {
+    const stylesDir = path.join(__dirname, 'src', 'renderer', 'styles');
+    await fs.ensureDir(stylesDir);
+    const files = await fs.readdir(stylesDir);
+    return files
+      .filter(file => file.endsWith('.css'))
+      .map(file => file.replace('.css', ''));
+  } catch (err) {
+    console.error('Failed to get available themes:', err);
+    return ['default']; // 回退
+  }
+});
