@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const closeModal = document.querySelector('.close-modal')
     const themeSelect = document.getElementById('theme-select')
     const jsonError = document.getElementById('json-error')
+    const toggleViewBtn = document.getElementById('toggle-view-btn')
+    const structuredView = document.getElementById('structured-view')
   
     let currentFile = null
   
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     newBtn.addEventListener('click', showTemplateModal)
     closeModal.addEventListener('click', () => templateModal.style.display = 'none')
     themeSelect.addEventListener('change', changeTheme)
+    toggleViewBtn.addEventListener('click', toggleView)
   
     // 加载文件列表
     async function loadFiles() {
@@ -70,7 +73,184 @@ document.addEventListener('DOMContentLoaded', async () => {
         jsonContent.value = response.content
         await loadFiles() // 刷新列表以更新活动状态
         validateJson()
+        renderStructuredView(JSON.parse(response.content))
       }
+    }
+  
+    // 切换视图
+    function toggleView() {
+      if (structuredView.style.display === 'none') {
+        try {
+          const jsonData = JSON.parse(jsonContent.value)
+          renderStructuredView(jsonData)
+          structuredView.style.display = 'block'
+          jsonContent.style.display = 'none'
+          toggleViewBtn.textContent = 'Raw JSON'
+        } catch (err) {
+          showJsonError('Cannot switch view: ' + err.message)
+        }
+      } else {
+        structuredView.style.display = 'none'
+        jsonContent.style.display = 'block'
+        toggleViewBtn.textContent = 'Structured View'
+      }
+    }
+  
+    // 渲染结构化视图
+    function renderStructuredView(data, parentKey = '') {
+      structuredView.innerHTML = ''
+      
+      if (typeof data !== 'object' || data === null) {
+        structuredView.innerHTML = '<p>This JSON structure is not suitable for structured view</p>'
+        return
+      }
+      
+      for (const key in data) {
+        const value = data[key]
+        const fullKey = parentKey ? `${parentKey}.${key}` : key
+        
+        if (Array.isArray(value)) {
+          const section = document.createElement('div')
+          section.className = 'json-section'
+          
+          const heading = document.createElement('h2')
+          heading.textContent = key
+          section.appendChild(heading)
+          
+          const textarea = document.createElement('textarea')
+          textarea.className = 'json-textarea'
+          textarea.value = value.join('\n')
+          textarea.dataset.key = fullKey
+          
+          textarea.style.height = 'auto'
+          textarea.style.height = (textarea.scrollHeight) + 'px'
+          
+          textarea.addEventListener('input', (e) => {
+            const newValue = e.target.value.split('\n').filter(line => line.trim() !== '')
+            updateStructuredData(fullKey, newValue)
+            
+            e.target.style.height = 'auto'
+            e.target.style.height = (e.target.scrollHeight) + 'px'
+          })
+          
+          section.appendChild(textarea)
+          structuredView.appendChild(section)
+        } else if (typeof value === 'object' && value !== null) {
+          const section = document.createElement('div')
+          section.className = 'json-section'
+          
+          const heading = document.createElement('h1')
+          heading.textContent = key
+          section.appendChild(heading)
+          
+          const nestedContainer = document.createElement('div')
+          nestedContainer.className = 'nested-container'
+          renderNestedStructure(value, nestedContainer, fullKey)
+          section.appendChild(nestedContainer)
+          
+          structuredView.appendChild(section)
+        } else {
+          const section = document.createElement('div')
+          section.className = 'json-section'
+          
+          const label = document.createElement('label')
+          label.textContent = key
+          section.appendChild(label)
+          
+          const input = document.createElement('input')
+          input.type = 'text'
+          input.value = value
+          input.dataset.key = fullKey
+          input.addEventListener('input', (e) => {
+            updateStructuredData(fullKey, e.target.value)
+          })
+          
+          section.appendChild(input)
+          structuredView.appendChild(section)
+        }
+      }
+    }
+  
+    // 渲染嵌套结构
+    function renderNestedStructure(data, container, parentKey) {
+      for (const key in data) {
+        const value = data[key]
+        const fullKey = parentKey ? `${parentKey}.${key}` : key
+        
+        if (Array.isArray(value)) {
+          const section = document.createElement('div')
+          section.className = 'json-subsection'
+          
+          const heading = document.createElement('h2')
+          heading.textContent = key
+          section.appendChild(heading)
+          
+          const textarea = document.createElement('textarea')
+          textarea.className = 'json-textarea'
+          textarea.value = value.join('\n')
+          textarea.dataset.key = fullKey
+          
+          textarea.style.height = 'auto'
+          textarea.style.height = (textarea.scrollHeight) + 'px'
+          
+          textarea.addEventListener('input', (e) => {
+            const newValue = e.target.value.split('\n').filter(line => line.trim() !== '')
+            updateStructuredData(fullKey, newValue)
+            
+            e.target.style.height = 'auto'
+            e.target.style.height = (e.target.scrollHeight) + 'px'
+          })
+          
+          section.appendChild(textarea)
+          container.appendChild(section)
+        } else if (typeof value === 'object' && value !== null) {
+          const section = document.createElement('div')
+          section.className = 'json-subsection'
+          
+          const heading = document.createElement('h2')
+          heading.textContent = key
+          section.appendChild(heading)
+          
+          const nestedContainer = document.createElement('div')
+          nestedContainer.className = 'nested-container'
+          renderNestedStructure(value, nestedContainer, fullKey)
+          section.appendChild(nestedContainer)
+          
+          container.appendChild(section)
+        } else {
+          const section = document.createElement('div')
+          section.className = 'json-subsection'
+          
+          const label = document.createElement('label')
+          label.textContent = key
+          section.appendChild(label)
+          
+          const input = document.createElement('input')
+          input.type = 'text'
+          input.value = value
+          input.dataset.key = fullKey
+          input.addEventListener('input', (e) => {
+            updateStructuredData(fullKey, e.target.value)
+          })
+          
+          section.appendChild(input)
+          container.appendChild(section)
+        }
+      }
+    }
+  
+    // 更新结构化数据
+    function updateStructuredData(keyPath, value) {
+      const keys = keyPath.split('.')
+      let current = JSON.parse(jsonContent.value)
+      let temp = current
+      
+      for (let i = 0; i < keys.length - 1; i++) {
+        temp = temp[keys[i]]
+      }
+      
+      temp[keys[keys.length - 1]] = value
+      jsonContent.value = JSON.stringify(current, null, 2)
     }
   
     // 保存当前文件
