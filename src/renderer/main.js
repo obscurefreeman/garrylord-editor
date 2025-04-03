@@ -137,15 +137,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           textarea.value = value.join('\n')
           textarea.dataset.key = fullKey
           
-          textarea.style.height = 'auto'
-          textarea.style.height = (textarea.scrollHeight) + 'px'
-          
           textarea.addEventListener('input', (e) => {
             const newValue = e.target.value.split('\n').filter(line => line.trim() !== '')
             updateStructuredData(fullKey, newValue)
-            
-            e.target.style.height = 'auto'
-            e.target.style.height = (e.target.scrollHeight) + 'px'
           })
           
           section.appendChild(textarea)
@@ -205,15 +199,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           textarea.value = value.join('\n')
           textarea.dataset.key = fullKey
           
-          textarea.style.height = 'auto'
-          textarea.style.height = (textarea.scrollHeight) + 'px'
-          
           textarea.addEventListener('input', (e) => {
             const newValue = e.target.value.split('\n').filter(line => line.trim() !== '')
             updateStructuredData(fullKey, newValue)
-            
-            e.target.style.height = 'auto'
-            e.target.style.height = (e.target.scrollHeight) + 'px'
           })
           
           section.appendChild(textarea)
