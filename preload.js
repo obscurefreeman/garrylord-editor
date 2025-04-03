@@ -6,7 +6,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   loadJsonFile: (name) => ipcRenderer.invoke('load-json', name),
   deleteJsonFile: (name) => ipcRenderer.invoke('delete-json', name),
   loadTemplate: (type) => ipcRenderer.invoke('load-template', type),
-  // 添加窗口控制API
+  getTemplates: () => ipcRenderer.invoke('get-templates'), // Add this line
   minimizeWindow: () => ipcRenderer.send('window-minimize'),
   maximizeWindow: () => ipcRenderer.send('window-maximize'),
   closeWindow: () => ipcRenderer.send('window-close')

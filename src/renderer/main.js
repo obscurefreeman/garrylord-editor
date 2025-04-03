@@ -15,8 +15,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const saveBtn = document.getElementById('save-btn')
     const deleteBtn = document.getElementById('delete-btn')
     const formatBtn = document.getElementById('format-btn')
-    const newNameBtn = document.getElementById('new-name-btn')
-    const newDialogueBtn = document.getElementById('new-dialogue-btn')
+    const newBtn = document.getElementById('new-btn')
+    const templateModal = document.getElementById('template-modal')
+    const templateList = document.getElementById('template-list')
+    const closeModal = document.querySelector('.close-modal')
     const themeSelect = document.getElementById('theme-select')
     const jsonError = document.getElementById('json-error')
   
@@ -30,8 +32,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     saveBtn.addEventListener('click', saveCurrentFile)
     deleteBtn.addEventListener('click', deleteCurrentFile)
     formatBtn.addEventListener('click', formatJson)
-    newNameBtn.addEventListener('click', createNewNameFile)
-    newDialogueBtn.addEventListener('click', createNewDialogueFile)
+    newBtn.addEventListener('click', showTemplateModal)
+    closeModal.addEventListener('click', () => templateModal.style.display = 'none')
     themeSelect.addEventListener('change', changeTheme)
   
     // 加载文件列表
@@ -107,29 +109,39 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
   
-    // 创建新的名称数据文件
-    async function createNewNameFile() {
-      currentFile = null
-      fileName.value = ''
-      try {
-        const template = await window.electronAPI.loadTemplate('name')
-        jsonContent.value = JSON.stringify(template, null, 2)
-        fileName.focus()
-      } catch (err) {
-        showJsonError('Failed to load name template: ' + err.message)
+    // 显示模板选择模态框
+    async function showTemplateModal() {
+      templateList.innerHTML = ''
+      const templates = await window.electronAPI.getTemplates()
+      
+      if (templates.length === 0) {
+        templateList.innerHTML = '<p>No templates found</p>'
+      } else {
+        templates.forEach(template => {
+          const templateBtn = document.createElement('button')
+          templateBtn.className = 'template-btn'
+          templateBtn.textContent = template.name
+          templateBtn.addEventListener('click', () => {
+            createFromTemplate(template.name)
+            templateModal.style.display = 'none'
+          })
+          templateList.appendChild(templateBtn)
+        })
       }
+      
+      templateModal.style.display = 'block'
     }
   
-    // 创建新的对话数据文件
-    async function createNewDialogueFile() {
+    // 从模板创建新文件
+    async function createFromTemplate(templateName) {
       currentFile = null
       fileName.value = ''
       try {
-        const template = await window.electronAPI.loadTemplate('dialogue')
+        const template = await window.electronAPI.loadTemplate(templateName)
         jsonContent.value = JSON.stringify(template, null, 2)
         fileName.focus()
       } catch (err) {
-        showJsonError('Failed to load dialogue template: ' + err.message)
+        showJsonError(`Failed to load ${templateName} template: ${err.message}`)
       }
     }
   

@@ -99,11 +99,28 @@ ipcMain.handle('delete-json', async (event, name) => {
 
 ipcMain.handle('load-template', async (event, type) => {
   try {
-    const templatePath = path.join(__dirname, 'templates', `example_${type}.json`)
+    const templatePath = path.join(__dirname, 'templates', `template_${type}.json`)
     const data = await fs.promises.readFile(templatePath, 'utf-8')
     return JSON.parse(data)
   } catch (err) {
     console.error(`Failed to load ${type} template:`, err)
     throw new Error(`Failed to load ${type} template: ${err.message}`)
+  }
+})
+
+ipcMain.handle('get-templates', async () => {
+  try {
+    const templatesDir = path.join(__dirname, 'templates')
+    await fs.ensureDir(templatesDir)
+    const files = await fs.readdir(templatesDir)
+    return files
+      .filter(file => file.startsWith('template_') && file.endsWith('.json'))
+      .map(file => ({
+        name: file,
+        path: path.join(templatesDir, file)
+      }))
+  } catch (err) {
+    console.error('Failed to get templates:', err)
+    return []
   }
 })

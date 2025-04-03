@@ -10,9 +10,9 @@
   <div class="titlebar" id="titlebar">
     <div>JSON Editor</div>
     <div class="window-controls">
-        <button id="minimize-btn">-</button>
-        <button id="maximize-btn">□</button>
-        <button id="close-btn">×</button>
+        <button id="minimize-btn">&#9472;</button>
+        <button id="maximize-btn">&#9633;</button>
+        <button id="close-btn">&times;</button>
     </div>
 </div>
   <div class="app-container">
@@ -20,9 +20,8 @@
       <div class="sidebar-header">
         <h1>JSON Files</h1>
         <div class="file-type-selector">
-          <button id="new-name-btn">New Name Data</button>
-          <button id="new-dialogue-btn">New Dialogue Data</button>
-        </div>
+          <button id="new-btn">New</button>
+        </div>        
         <div class="theme-selector">
           <label for="theme-select">Theme:</label>
           <select id="theme-select">
@@ -45,6 +44,14 @@
       </div>
       <textarea id="json-content" placeholder="Edit JSON content here..."></textarea>
       <div id="json-error" class="json-error"></div>
+    </div>
+  </div>
+  <div id="template-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Select Template</h2>
+      <div id="template-list" class="template-list">
+      </div>
     </div>
   </div>
   <script src="main.js"></script>
