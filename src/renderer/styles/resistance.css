@@ -1,17 +1,17 @@
 :root {
-  --bg-color: #2f1a0a; /* 深橙色背景，象征反抗的沉重 */
-  --sidebar-bg: #402010; /* 侧边栏深橙色 */
-  --text-color: #f6e0cc; /* 浅橙色文字 */
-  --border-color: #543315; /* 橙色边框 */
-  --active-item-bg: #684020; /* 活动项橙色背景 */
-  --theme-color: #ff8c42; /* 主题橙色，象征反抗的火焰 */
-  --theme-color-outline: #ffb88c; /* 主题橙色轮廓 */
-  --button-text: #2f1a0a; /* 按钮深橙色文字 */
+  --bg-color: #333333;
+  --sidebar-bg: #404040;
+  --text-color: #e0e0e0;
+  --border-color: #666666;
+  --active-item-bg: #4d4d4d;
+  --theme-color: #ff4500;
+  --theme-color-outline: #ff6347;
+  --button-text: #ffffff;
   --error-color: #ff0000;
-  --heading1-color: #ff8c42; /* 标题1橙色 */
-  --heading2-color: #ff6b42; /* 标题2亮橙色 */
-  --heading3-color: #ffaa8c; /* 标题3浅橙色 */
-  --input-bg: #402010; /* 输入框深橙色背景 */
-  --scrollbar-width: 10px;
+  --heading1-color: #ff4500;
+  --heading2-color: #ff6347;
+  --heading3-color: #ff7f50;
+  --input-bg: #404040;
+  --scrollbar-width: 0.625rem;
   --transition-speed: 0.3s;
 }
