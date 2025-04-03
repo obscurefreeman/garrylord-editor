@@ -1,0 +1,17 @@
+:root {
+  --bg-color: #0a1a0a;  /* 深绿色背景，象征森林 */
+  --sidebar-bg: #1a2a1a;  /* 深绿色侧边栏，呼应自然氛围 */
+  --text-color: #d8e6a0;  /* 浅绿色文字，易读且符合主题 */
+  --border-color: #2a3a2a;  /* 深绿色边框，与侧边栏协调 */
+  --active-item-bg: #3a4a3a;  /* 更亮的绿色作为激活项背景 */
+  --theme-color: #aaff88;  /* 亮绿色主题色，象征生命力 */
+  --theme-color-outline: #ccffaa;  /* 更亮的绿色轮廓 */
+  --button-text: #0a1a0a;  /* 深色按钮文字，与背景形成对比 */
+  --error-color: #ff3333;  /* 红色错误提示，保持醒目 */
+  --heading1-color: #aaff88;  /* 亮绿色一级标题 */
+  --heading2-color: #88cc66;  /* 中绿色二级标题 */
+  --heading3-color: #ccffaa;  /* 亮绿色三级标题 */
+  --input-bg: #1a2a1a;  /* 深绿色输入框背景 */
+  --scrollbar-width: 10px;  /* 滚动条宽度保持一致 */
+  --transition-speed: 0.3s;  /* 过渡速度保持一致 */
+} 

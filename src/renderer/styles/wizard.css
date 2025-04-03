@@ -1,0 +1,17 @@
+:root {
+  --bg-color: #0a0a1a;  /* 深蓝色背景，象征夜空 */
+  --sidebar-bg: #1a1a2f;  /* 深紫色侧边栏，呼应巫师的神秘感 */
+  --text-color: #d8e6f0;  /* 浅银色文字，易读且符合主题 */
+  --border-color: #2a2a3f;  /* 深紫色边框，与侧边栏协调 */
+  --active-item-bg: #3a3a4f;  /* 更亮的紫色作为激活项背景 */
+  --theme-color: #aaccff;  /* 浅蓝色主题色，象征魔法能量 */
+  --theme-color-outline: #ccddff;  /* 更亮的蓝色轮廓 */
+  --button-text: #0a0a1a;  /* 深色按钮文字，与背景形成对比 */
+  --error-color: #ff3333;  /* 红色错误提示，保持醒目 */
+  --heading1-color: #aaccff;  /* 浅蓝色一级标题 */
+  --heading2-color: #88aadd;  /* 中蓝色二级标题 */
+  --heading3-color: #ccddff;  /* 亮蓝色三级标题 */
+  --input-bg: #1a1a2f;  /* 深紫色输入框背景 */
+  --scrollbar-width: 10px;  /* 滚动条宽度保持一致 */
+  --transition-speed: 0.3s;  /* 过渡速度保持一致 */
+} 

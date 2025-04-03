@@ -1,0 +1,17 @@
+:root {
+  --bg-color: #1a0a1a;  /* 深紫色背景，象征魔法能量 */
+  --sidebar-bg: #2a1a2a;  /* 深紫色侧边栏，呼应法师的神秘感 */
+  --text-color: #f0d8f0;  /* 浅粉色文字，易读且符合主题 */
+  --border-color: #3a2a3a;  /* 深紫色边框，与侧边栏协调 */
+  --active-item-bg: #4a3a4a;  /* 更亮的紫色作为激活项背景 */
+  --theme-color: #ff88ff;  /* 粉色主题色，象征魔法能量 */
+  --theme-color-outline: #ffaaff;  /* 更亮的粉色轮廓 */
+  --button-text: #1a0a1a;  /* 深色按钮文字，与背景形成对比 */
+  --error-color: #ff3333;  /* 红色错误提示，保持醒目 */
+  --heading1-color: #ff88ff;  /* 粉色一级标题 */
+  --heading2-color: #cc66cc;  /* 中粉色二级标题 */
+  --heading3-color: #ffaaff;  /* 亮粉色三级标题 */
+  --input-bg: #2a1a2a;  /* 深紫色输入框背景 */
+  --scrollbar-width: 10px;  /* 滚动条宽度保持一致 */
+  --transition-speed: 0.3s;  /* 过渡速度保持一致 */
+} 
