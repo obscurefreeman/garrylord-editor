@@ -1,16 +1,16 @@
 :root {
   --bg-color: #1a0a1a;
   --sidebar-bg: #2a1a2a;
-  --text-color: #f0d8f0;
+  --text-color: #e6e6e6;
   --border-color: #3a2a3a;
   --active-item-bg: #4a3a4a;
-  --theme-color: #ff88ff;
-  --theme-color-outline: #ffaaff;
+  --theme-color: #cccccc;
+  --theme-color-outline: #dddddd;
   --button-text: #1a0a1a;
   --error-color: #ff3333;
-  --heading1-color: #ff88ff;
-  --heading2-color: #cc66cc;
-  --heading3-color: #ffaaff;
+  --heading1-color: #cccccc;
+  --heading2-color: #aaaaaa;
+  --heading3-color: #dddddd;
   --input-bg: #2a1a2a;
   --scrollbar-width: 10px;
   --transition-speed: 0.3s;
