@@ -366,6 +366,8 @@ button:active {
   width: 50%;
   max-width: 25rem;
   border-radius: 0.3125rem;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .close-modal {
@@ -407,4 +409,43 @@ button:active {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--active-item-bg);
   transform: scale(1.1);
+}
+
+.theme-preview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.theme-preview {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-preview:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-preview.active {
+  border-color: var(--theme-color);
+  box-shadow: 0 0 0 2px var(--theme-color);
+}
+
+.theme-preview-colors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.theme-preview-color {
+  height: 20px;
+  border-radius: 0.25rem;
 }

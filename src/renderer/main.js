@@ -407,35 +407,136 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 主题功能
     async function setupTheme() {
       const themes = await window.electronAPI.getAvailableThemes();
-      themeSelect.innerHTML = '';
+      const themePreviewContainer = document.getElementById('theme-preview-container');
+      const themeModal = document.getElementById('theme-modal');
       
-      themes.forEach(theme => {
-        const option = document.createElement('option');
-        option.value = theme;
-        option.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
-        themeSelect.appendChild(option);
+      // 打开主题选择弹窗
+      document.getElementById('theme-select').addEventListener('click', () => {
+        themeModal.style.display = 'block';
       });
-    
-      // 优先使用保存的主题，否则使用default
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme && themes.includes(savedTheme)) {
-        themeSelect.value = savedTheme;
-      } else {
-        themeSelect.value = 'default';
-      }
+
+      // 关闭主题选择弹窗
+      document.querySelectorAll('.close-modal').forEach(closeBtn => {
+        closeBtn.addEventListener('click', (e) => {
+          e.target.closest('.modal').style.display = 'none';
+        });
+      });
+
+      // 生成主题预览
+      themePreviewContainer.innerHTML = '';
       
-      changeTheme();
+      // 添加默认主题预览
+      addThemePreview('default', {
+        '--bg-color': '#1e1e1e',
+        '--sidebar-bg': '#252526',
+        '--text-color': '#d4d4d4',
+        '--theme-color': '#ff9900'
+      });
+
+      // 为每个主题文件创建预览
+      for (const theme of themes) {
+        if (theme === 'default') continue;
+        
+        try {
+          const response = await fetch(`styles/${theme}.css`);
+          const cssContent = await response.text();
+          const colorVars = extractColorVariables(cssContent);
+          
+          addThemePreview(theme, colorVars);
+        } catch (err) {
+          console.error(`Failed to load ${theme} theme:`, err);
+        }
+      }
+
+      // 设置当前主题
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme && (savedTheme === 'default' || themes.includes(savedTheme))) {
+        changeTheme(savedTheme);
+      } else {
+        changeTheme('default');
+      }
     }
   
-    function changeTheme() {
-      const theme = themeSelect.value;
-      const themeVarsLink = document.getElementById('theme-vars');
+    // 从CSS内容中提取颜色变量
+    function extractColorVariables(cssContent) {
+      const varRegex = /(--[a-z-]+):\s*(#[0-9a-fA-F]{3,6}|rgba?\([^)]+\)|[a-z]+);/g;
+      const colorVars = {};
+      let match;
       
+      while ((match = varRegex.exec(cssContent)) !== null) {
+        const varName = match[1];
+        const varValue = match[2];
+        
+        // 只收集颜色相关的变量
+        if (varName.includes('color') || varName.includes('bg') || varName.includes('theme')) {
+          colorVars[varName] = varValue;
+        }
+      }
+      
+      return colorVars;
+    }
+  
+    // 添加主题预览
+    function addThemePreview(themeName, colorVars) {
+      const themePreviewContainer = document.getElementById('theme-preview-container');
+      const preview = document.createElement('div');
+      preview.className = 'theme-preview';
+      preview.dataset.theme = themeName;
+      
+      // 预览标题
+      const title = document.createElement('div');
+      title.textContent = themeName.charAt(0).toUpperCase() + themeName.slice(1);
+      preview.appendChild(title);
+
+      // 颜色预览
+      const colors = document.createElement('div');
+      colors.className = 'theme-preview-colors';
+      
+      // 添加主要颜色预览
+      const importantColors = [
+        colorVars['--theme-color'] || '#ff9900',
+        colorVars['--bg-color'] || '#1e1e1e',
+        colorVars['--text-color'] || '#d4d4d4',
+        colorVars['--sidebar-bg'] || '#252526',
+        colorVars['--heading1-color'] || colorVars['--theme-color'] || '#ff9900'
+      ].slice(0, 3); // 只显示前3种颜色
+      
+      importantColors.forEach(color => {
+        const colorDiv = document.createElement('div');
+        colorDiv.className = 'theme-preview-color';
+        colorDiv.style.backgroundColor = color;
+        colors.appendChild(colorDiv);
+      });
+
+      preview.appendChild(colors);
+      
+      // 选择主题
+      preview.addEventListener('click', () => {
+        changeTheme(themeName);
+        document.getElementById('theme-modal').style.display = 'none';
+      });
+
+      themePreviewContainer.appendChild(preview);
+    }
+  
+    function changeTheme(theme) {
+      const themeVarsLink = document.getElementById('theme-vars');
+      const themePreviews = document.querySelectorAll('.theme-preview');
+      
+      // 移除所有主题的 active 状态
+      themePreviews.forEach(preview => {
+        preview.classList.remove('active');
+      });
+
+      // 设置当前主题为 active
+      const currentPreview = document.querySelector(`.theme-preview[data-theme="${theme}"]`);
+      if (currentPreview) {
+        currentPreview.classList.add('active');
+      }
+
       if (theme === 'default') {
-        // 如果是默认主题，不需要加载额外的变量
         themeVarsLink.href = '';
       } else {
-        // 加载对应主题的变量定义
         themeVarsLink.href = `styles/${theme}.css`;
       }
       
