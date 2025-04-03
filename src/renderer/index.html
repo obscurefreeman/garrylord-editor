@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electron Notes</title>
+  <title>JSON Editor</title>
   <link id="theme-style" rel="stylesheet" href="styles/default.css">
 </head>
 <body>
   <div class="titlebar" id="titlebar">
-    <div>笔记</div>
+    <div>JSON Editor</div>
     <div class="window-controls">
         <button id="minimize-btn">-</button>
         <button id="maximize-btn">□</button>
@@ -18,28 +18,33 @@
   <div class="app-container">
     <div class="sidebar">
       <div class="sidebar-header">
-        <h1>我的笔记</h1>
-        <button id="new-note-btn">新建笔记</button>
+        <h1>JSON Files</h1>
+        <div class="file-type-selector">
+          <button id="new-name-btn">New Name Data</button>
+          <button id="new-dialogue-btn">New Dialogue Data</button>
+        </div>
         <div class="theme-selector">
-          <label for="theme-select">主题:</label>
+          <label for="theme-select">Theme:</label>
           <select id="theme-select">
-            <option value="default">默认</option>
-            <option value="light">明亮</option>
-            <option value="dark">暗黑</option>
+            <option value="default">Default</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
           </select>
         </div>
       </div>
-      <div class="notes-list" id="notes-list">
-        <!-- 笔记列表将在这里动态生成 -->
+      <div class="files-list" id="files-list">
+        <!-- 文件列表将在这里动态生成 -->
       </div>
     </div>
-    <div class="note-editor">
-      <input type="text" id="note-title" placeholder="笔记标题">
-      <textarea id="note-content" placeholder="开始写作..."></textarea>
-      <div class="editor-actions">
-        <button id="save-btn">保存</button>
-        <button id="delete-btn">删除</button>
+    <div class="json-editor">
+      <input type="text" id="file-name" placeholder="File name">
+      <div class="json-actions">
+        <button id="save-btn">Save</button>
+        <button id="delete-btn">Delete</button>
+        <button id="format-btn">Format</button>
       </div>
+      <textarea id="json-content" placeholder="Edit JSON content here..."></textarea>
+      <div id="json-error" class="json-error"></div>
     </div>
   </div>
   <script src="main.js"></script>

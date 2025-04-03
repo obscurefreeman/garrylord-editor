@@ -2,9 +2,9 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs-extra')
 
-// 确保笔记目录存在
-const notesDir = path.join(app.getPath('userData'), 'notes')
-fs.ensureDirSync(notesDir)
+// 确保JSON目录存在
+const jsonDir = path.join(app.getPath('userData'), 'json-files')
+fs.ensureDirSync(jsonDir)
 
 let mainWindow
 
@@ -53,26 +53,32 @@ app.on('activate', () => {
 })
 
 // IPC 通信处理
-ipcMain.handle('get-notes', async () => {
+ipcMain.handle('get-json-files', async () => {
   try {
-    const files = await fs.readdir(notesDir)
-    return files.filter(file => file.endsWith('.md')).map(file => ({
-      name: file.replace('.md', ''),
-      path: path.join(notesDir, file)
+    const files = await fs.readdir(jsonDir)
+    return files.filter(file => file.endsWith('.json')).map(file => ({
+      name: file.replace('.json', ''),
+      path: path.join(jsonDir, file)
     }))
   } catch (err) {
     return []
   }
 })
 
-ipcMain.handle('save-note', async (event, { name, content }) => {
-  const filePath = path.join(notesDir, `${name}.md`)
-  await fs.writeFile(filePath, content)
-  return { success: true }
+ipcMain.handle('save-json', async (event, { name, content, type }) => {
+  const filePath = path.join(jsonDir, `${name}.json`)
+  try {
+    // 验证JSON格式
+    JSON.parse(content);
+    await fs.writeFile(filePath, content)
+    return { success: true }
+  } catch (err) {
+    return { success: false, error: 'Invalid JSON format' }
+  }
 })
 
-ipcMain.handle('load-note', async (event, name) => {
-  const filePath = path.join(notesDir, `${name}.md`)
+ipcMain.handle('load-json', async (event, name) => {
+  const filePath = path.join(jsonDir, `${name}.json`)
   try {
     const content = await fs.readFile(filePath, 'utf-8')
     return { success: true, content }
@@ -81,12 +87,23 @@ ipcMain.handle('load-note', async (event, name) => {
   }
 })
 
-ipcMain.handle('delete-note', async (event, name) => {
-  const filePath = path.join(notesDir, `${name}.md`)
+ipcMain.handle('delete-json', async (event, name) => {
+  const filePath = path.join(jsonDir, `${name}.json`)
   try {
     await fs.remove(filePath)
     return { success: true }
   } catch (err) {
     return { success: false }
+  }
+})
+
+ipcMain.handle('load-template', async (event, type) => {
+  try {
+    const templatePath = path.join(__dirname, 'templates', `example_${type}.json`)
+    const data = await fs.promises.readFile(templatePath, 'utf-8')
+    return JSON.parse(data)
+  } catch (err) {
+    console.error(`Failed to load ${type} template:`, err)
+    throw new Error(`Failed to load ${type} template: ${err.message}`)
   }
 })
