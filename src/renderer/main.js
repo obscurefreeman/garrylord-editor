@@ -295,13 +295,39 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function deleteCurrentFile() {
       if (!currentFile) return
       
-      if (confirm(`Are you sure you want to delete "${currentFile.name}"?`)) {
-        await window.electronAPI.deleteJsonFile(currentFile.name)
-        currentFile = null
-        fileName.value = ''
-        jsonContent.value = ''
-        await loadFiles()
-      }
+      // 创建自定义确认弹窗
+      const confirmModal = document.createElement('div')
+      confirmModal.className = 'modal'
+      confirmModal.innerHTML = `
+        <div class="modal-content">
+          <h2>Confirm Deletion</h2>
+          <p>Are you sure you want to delete "${currentFile.name}"?</p>
+          <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+            <button id="confirm-delete-btn">Delete</button>
+            <button id="cancel-delete-btn">Cancel</button>
+          </div>
+        </div>
+      `
+      
+      document.body.appendChild(confirmModal)
+      
+      // 等待用户选择
+      return new Promise((resolve) => {
+        document.getElementById('confirm-delete-btn').addEventListener('click', async () => {
+          await window.electronAPI.deleteJsonFile(currentFile.name)
+          currentFile = null
+          fileName.value = ''
+          jsonContent.value = ''
+          await loadFiles()
+          confirmModal.remove()
+          resolve(true)
+        })
+        
+        document.getElementById('cancel-delete-btn').addEventListener('click', () => {
+          confirmModal.remove()
+          resolve(false)
+        })
+      })
     }
   
     // 显示模板选择模态框

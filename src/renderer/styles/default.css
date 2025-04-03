@@ -432,3 +432,26 @@ button:active {
   height: 20px;
   border-radius: 0.25rem;
 }
+
+.modal-content button {
+  padding: 0.5rem 0.9375rem;
+  background-color: var(--theme-color);
+  color: var(--button-text);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-content button#cancel-delete-btn {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.modal-content button#cancel-delete-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
