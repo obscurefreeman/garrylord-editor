@@ -20,7 +20,8 @@ function createWindow() {
       contextIsolation: true,
       enableRemoteModule: false,
       nodeIntegration: false
-    }
+    },
+    icon: path.join(__dirname, 'assets/favicon.ico')
   })
 
   mainWindow.loadFile('src/renderer/index.html')
