@@ -1,17 +1,17 @@
 :root {
-  --bg-color: #2f2a0a;
-  --sidebar-bg: #403a10;
+  --bg-color: #0a1a2f;
+  --sidebar-bg: #102040;
   --text-color: #f6f0cc;
-  --border-color: #544a15;
-  --active-item-bg: #685f20;
+  --border-color: #153354;
+  --active-item-bg: #204068;
   --theme-color: #ffd700;
   --theme-color-outline: #ffec8b;
-  --button-text: #2f2a0a;
+  --button-text: #0a1a2f;
   --error-color: #ff0000;
   --heading1-color: #ffd700;
   --heading2-color: #ffa500;
   --heading3-color: #ffcc00;
-  --input-bg: #403a10;
+  --input-bg: #102040;
   --scrollbar-width: 10px;
   --transition-speed: 0.3s;
 }
