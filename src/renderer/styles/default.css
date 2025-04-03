@@ -203,6 +203,12 @@ body {
   line-height: 1.5;
   box-sizing: border-box;
   height: auto;
+  outline: none; /* 移除默认的蓝色轮廓 */
+}
+
+.json-textarea:focus {
+  border-color: var(--theme-color);
+  box-shadow: 0 0 0 0.05rem var(--theme-color-outline);
 }
 
 .json-section label {
@@ -380,12 +386,12 @@ button:active {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #555;
+  background: var(--border-color);
   border-radius: calc(var(--scrollbar-width) / 2);
   transition: background var(--transition-speed) ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #666;
+  background: var(--active-item-bg);
   transform: scale(1.1);
 }
