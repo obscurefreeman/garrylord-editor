@@ -328,26 +328,36 @@ button:active {
   height: 100%;
   background-color: rgba(0,0,0,0.4);
   backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 改为从顶部开始，防止内容少时居中太高 */
+  padding-top: 5vh; /* 添加顶部内边距 */
+  overflow: auto;
 }
 
 .modal-content {
   background-color: var(--bg-color);
-  margin: 15% auto;
+  margin: 1rem auto; /* 保留一些外边距 */
   padding: 1.25rem;
   border: 1px solid var(--border-color);
-  width: 50%;
-  max-width: 25rem;
+  width: 90%;
+  max-width: 40rem;
   border-radius: 0.3125rem;
   max-height: 80vh;
-  overflow-y: auto;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(0); /* 确保不会偏移 */
 }
 
 .close-modal {
+  position: absolute;
+  right: 1.25rem;
+  top: 1rem;
   color: var(--text-color);
-  float: right;
   font-size: 1.75rem;
   font-weight: bold;
   cursor: pointer;
+  z-index: 2;
 }
 
 .template-list {
@@ -387,8 +397,9 @@ button:active {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 1rem;
-  margin-top: 1rem;
-  max-height: 60vh;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  max-height: calc(80vh - 6rem);
   overflow-y: auto;
 }
 
