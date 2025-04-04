@@ -113,7 +113,11 @@ ipcMain.handle('load-template', async (event, type) => {
 
 ipcMain.handle('get-templates', async () => {
   try {
-    const templatesDir = path.join(__dirname, 'templates')
+    const templatesDir = path.join(
+      process.env.NODE_ENV === 'development' 
+        ? path.join(__dirname, 'templates')
+        : path.join(process.resourcesPath, 'templates')
+    );
     await fs.ensureDir(templatesDir)
     const files = await fs.readdir(templatesDir)
     return files
@@ -130,7 +134,11 @@ ipcMain.handle('get-templates', async () => {
 
 ipcMain.handle('get-available-themes', async () => {
   try {
-    const stylesDir = path.join(__dirname, 'src', 'renderer', 'styles');
+    const stylesDir = path.join(
+      process.env.NODE_ENV === 'development'
+        ? path.join(__dirname, 'src', 'renderer', 'styles')
+        : path.join(process.resourcesPath, 'styles')
+    );
     await fs.ensureDir(stylesDir);
     const files = await fs.readdir(stylesDir);
     return files
@@ -138,6 +146,22 @@ ipcMain.handle('get-available-themes', async () => {
       .map(file => file.replace('.css', ''));
   } catch (err) {
     console.error('Failed to get available themes:', err);
-    return ['default']; // 回退
+    return ['default'];
+  }
+});
+
+ipcMain.handle('load-theme', async (event, themeName) => {
+  try {
+    const themePath = path.join(
+      process.env.NODE_ENV === 'development'
+        ? path.join(__dirname, 'src/renderer/styles')
+        : path.join(process.resourcesPath, 'styles'),
+      `${themeName}.css`
+    );
+    const content = await fs.readFile(themePath, 'utf-8');
+    return content;
+  } catch (err) {
+    console.error(`Failed to load ${themeName} theme:`, err);
+    return '';
   }
 });

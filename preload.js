@@ -10,5 +10,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   minimizeWindow: () => ipcRenderer.send('window-minimize'),
   maximizeWindow: () => ipcRenderer.send('window-maximize'),
   closeWindow: () => ipcRenderer.send('window-close'),
-  getAvailableThemes: () => ipcRenderer.invoke('get-available-themes')
+  getAvailableThemes: () => ipcRenderer.invoke('get-available-themes'),
+  loadTheme: (themeName) => ipcRenderer.invoke('load-theme', themeName)
 })

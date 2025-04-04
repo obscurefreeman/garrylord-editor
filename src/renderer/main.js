@@ -459,23 +459,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       // 生成主题预览
       themePreviewContainer.innerHTML = '';
       
-      // 添加默认主题预览
-      addThemePreview('default', {
-        '--bg-color': '#1e1e1e',
-        '--sidebar-bg': '#252526',
-        '--text-color': '#d4d4d4',
-        '--theme-color': '#ff9900'
-      });
-
-      // 为每个主题文件创建预览
       for (const theme of themes) {
-        if (theme === 'default') continue;
-        
         try {
-          const response = await fetch(`styles/${theme}.css`);
-          const cssContent = await response.text();
-          const colorVars = extractColorVariables(cssContent);
-          
+          const themeContent = await window.electronAPI.loadTheme(theme);
+          const colorVars = extractColorVariables(themeContent);
           addThemePreview(theme, colorVars);
         } catch (err) {
           console.error(`Failed to load ${theme} theme:`, err);
@@ -484,7 +471,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       // 设置当前主题
       const savedTheme = localStorage.getItem('theme');
-      if (savedTheme && (savedTheme === 'default' || themes.includes(savedTheme))) {
+      if (savedTheme && themes.includes(savedTheme)) {
         changeTheme(savedTheme);
       } else {
         changeTheme('default');
@@ -555,23 +542,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     function changeTheme(theme) {
       const themeVarsLink = document.getElementById('theme-vars');
-      const themePreviews = document.querySelectorAll('.theme-preview');
       
-      // 移除所有主题的 active 状态
-      themePreviews.forEach(preview => {
-        preview.classList.remove('active');
-      });
-
-      // 设置当前主题为 active
-      const currentPreview = document.querySelector(`.theme-preview[data-theme="${theme}"]`);
-      if (currentPreview) {
-        currentPreview.classList.add('active');
-      }
-
       if (theme === 'default') {
         themeVarsLink.href = '';
       } else {
-        themeVarsLink.href = `styles/${theme}.css`;
+        // 使用data URL方式加载主题
+        window.electronAPI.loadTheme(theme).then(cssContent => {
+          themeVarsLink.textContent = cssContent;
+        }).catch(err => {
+          console.error(`Failed to load ${theme} theme:`, err);
+        });
       }
       
       localStorage.setItem('theme', theme);
