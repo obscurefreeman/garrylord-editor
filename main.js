@@ -23,7 +23,7 @@ function createWindow() {
       enableRemoteModule: false,
       nodeIntegration: false
     },
-    icon: path.join(__dirname, 'favicon.ico')
+    icon: path.join(__dirname, 'assets/favicon.png')
   })
 
   mainWindow.loadFile('src/renderer/index.html')
