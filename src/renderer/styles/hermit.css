@@ -1,0 +1,17 @@
+:root {
+  --bg-color: #1a1a0a;
+  --sidebar-bg: #2a2a1a;
+  --text-color: #e6e6a0;
+  --border-color: #3a3a2a;
+  --active-item-bg: #4a4a3a;
+  --theme-color: #ffcc00;
+  --theme-color-outline: #ffdd33;
+  --button-text: #1a1a0a;
+  --error-color: #ff0000;
+  --heading1-color: #ffcc00;
+  --heading2-color: #ccaa00;
+  --heading3-color: #ffdd33;
+  --input-bg: #2a2a1a;
+  --scrollbar-width: 10px;
+  --transition-speed: 0.3s;
+} 
