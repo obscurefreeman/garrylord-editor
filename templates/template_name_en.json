@@ -1,7 +1,7 @@
 {
     "info": {
         "author": "Your Name Here",
-        "description": "Briefly describe your mod here."
+        "description": "A simple custom NPC name pool."
     },
     "custom_names":{
         "name": {

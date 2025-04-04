@@ -1,9 +1,9 @@
 {
     "info": {
         "author": "Your Name Here",
-        "description": "Briefly describe your mod here."
+        "description": "A simple custom NPC dialogue pool."
     },
-    "custom_dialogues":{
+    "custom_dialogues_npc":{
         "greeting": {
             "combine": [
                 "Get out of here, /player/. This area is not safe.",
@@ -348,49 +348,6 @@
                 "Those who don't plan to keep their promises don't consider the difficulties when making them."
             ]
         },
-        "playerchat": {
-            "greeting": [
-                "Hi, /name/, how have you been?",
-                "How's your day going, /name/?",
-                "So glad to meet you!",
-                "What have you been up to lately, /name/?",
-                "You seem in good spirits, /name/."
-            ],
-            "negotiate": [
-                "I'm here to negotiate!",
-                "I have an idea that might benefit us both, /name/.",
-                "If we can reach an agreement, things will be much easier.",
-                "I understand your difficulties, but we need to compromise.",
-                "/name/, there's something I need to discuss with you.",
-                "This is important, we need to talk it over.",
-                "How about this, let's both make some concessions?",
-                "I need to talk to you."
-            ],
-            "trade": [
-                "Do you have anything special here?",
-                "Your goods are great, /name/!",
-                "Got any good stuff for sale, /name/?",
-                "I'd like to buy some of your things, /name/.",
-                "Heard you've got some unique items here?",
-                "Can I take a look at your goods?",
-                "Hi, /name/, any recommendations for today?",
-                "I'm quite interested in your products.",
-                "Could you tell me more about your goods?",
-                "I'm looking for something unique.",
-                "Do you think today's deal will go well?"
-            ],
-            "leave": [
-                "Let's call it a day for now.",
-                "Good luck, /name/!",
-                "See you around, /name/!",
-                "Take care, /name/!",
-                "Until we meet again, /name/!",
-                "I'll catch up with you later.",
-                "See you later.",
-                "Let's continue this later.",
-                "I'll buy you a drink next time."
-            ]
-        },
         "response": {
             "greeting": [
                 "Ah, /player/, long time no see!",
@@ -421,5 +378,48 @@
                 "Alright, /player/, let's talk again some other time."
             ]
         }
+    },
+    "custom_dialogues_player": {
+        "greeting": [
+            "Hi, /name/, how have you been?",
+            "How's your day going, /name/?",
+            "So glad to meet you!",
+            "What have you been up to lately, /name/?",
+            "You seem in good spirits, /name/."
+        ],
+        "negotiate": [
+            "I'm here to negotiate!",
+            "I have an idea that might benefit us both, /name/.",
+            "If we can reach an agreement, things will be much easier.",
+            "I understand your difficulties, but we need to compromise.",
+            "/name/, there's something I need to discuss with you.",
+            "This is important, we need to talk it over.",
+            "How about this, let's both make some concessions?",
+            "I need to talk to you."
+        ],
+        "trade": [
+            "Do you have anything special here?",
+            "Your goods are great, /name/!",
+            "Got any good stuff for sale, /name/?",
+            "I'd like to buy some of your things, /name/.",
+            "Heard you've got some unique items here?",
+            "Can I take a look at your goods?",
+            "Hi, /name/, any recommendations for today?",
+            "I'm quite interested in your products.",
+            "Could you tell me more about your goods?",
+            "I'm looking for something unique.",
+            "Do you think today's deal will go well?"
+        ],
+        "leave": [
+            "Let's call it a day for now.",
+            "Good luck, /name/!",
+            "See you around, /name/!",
+            "Take care, /name/!",
+            "Until we meet again, /name/!",
+            "I'll catch up with you later.",
+            "See you later.",
+            "Let's continue this later.",
+            "I'll buy you a drink next time."
+        ]
     }
 } 

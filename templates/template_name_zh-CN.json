@@ -1,7 +1,7 @@
 {
     "info": {
         "author": "此处填写作者名称",
-        "description": "简要描述你的模组。"
+        "description": "一个简单的自定义 NPC 名称池。"
     },
     "custom_names":{
         "name": {
