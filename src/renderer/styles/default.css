@@ -233,7 +233,7 @@ body {
   transition: all var(--transition-speed) linear;
 }
 
-.json-textarea:focus {
+.json-textarea:hover {
   border-color: var(--theme-color);
   box-shadow: 0 0 0 0.05rem var(--theme-color-outline);
 }
@@ -253,6 +253,13 @@ body {
   border-radius: 0.25rem;
   margin-bottom: 0.625rem;
   box-sizing: border-box;
+  outline: none;
+  transition: all var(--transition-speed) linear;
+}
+
+.json-section input[type="text"]:hover {
+  border-color: var(--theme-color);
+  box-shadow: 0 0 0 0.05rem var(--theme-color-outline);
 }
 
 .nested-container {
@@ -275,7 +282,7 @@ body {
   transition: all var(--transition-speed) linear;
 }
 
-#file-name:focus {
+#file-name:hover {
   border-color: var(--theme-color);
   box-shadow: 0 0 0 0.05rem var(--theme-color-outline);
 }
@@ -299,7 +306,7 @@ body {
   transition: all var(--transition-speed) linear;
 }
 
-#json-content:focus {
+#json-content:hover {
   border-color: var(--theme-color);
   box-shadow: 0 0 0 0.05rem var(--theme-color-outline);
 }
@@ -413,6 +420,7 @@ button:hover {
 
 ::-webkit-scrollbar-track {
   background: var(--sidebar-bg);
+  border-radius: calc(var(--scrollbar-width) / 2);
 }
 
 ::-webkit-scrollbar-thumb {
