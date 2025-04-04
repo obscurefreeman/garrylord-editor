@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const themeVarsLink = document.getElementById('theme-vars');
       
       if (theme === 'default') {
-        themeVarsLink.href = '';
+        themeVarsLink.textContent = '';
       } else {
         // 使用data URL方式加载主题
         window.electronAPI.loadTheme(theme).then(cssContent => {
