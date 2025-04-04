@@ -11,24 +11,12 @@
   "keywords": [],
   "author": "晦涩弗里曼",
   "license": "Apache-2.0",
-  "build": {
-    "appId": "com.garrylord-editor.app",
-    "productName": "GarryLord Editor",
-    "win": {
-      "icon": "assets/favicon.ico",
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64"
-          ]
-        }
-      ]
-    },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": true,
-      "allowToChangeInstallationDirectory": true
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "name": "garrylord-editor",
+        "icon": "./assets/favicon.ico"
+      }
     }
   },
   "devDependencies": {
