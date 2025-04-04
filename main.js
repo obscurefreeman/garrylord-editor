@@ -2,6 +2,8 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs-extra')
 
+if (require('electron-squirrel-startup')) app.quit();
+
 // 确保JSON目录存在
 const jsonDir = path.join(app.getPath('userData'), 'json-files')
 fs.ensureDirSync(jsonDir)

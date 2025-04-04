@@ -11,17 +11,6 @@
   "keywords": [],
   "author": "晦涩弗里曼",
   "license": "Apache-2.0",
-  "config": {
-    "forge": {
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {}
-        }
-      ],
-      "publishers": []
-    }
-  },
   "devDependencies": {
     "@electron-forge/cli": "^7.8.0",
     "@electron-forge/maker-deb": "^7.8.0",
