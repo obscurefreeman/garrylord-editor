@@ -13,10 +13,13 @@
   "license": "Apache-2.0",
   "config": {
     "forge": {
-      "packagerConfig": {
-        "name": "garrylord-editor",
-        "icon": "./assets/favicon.ico"
-      }
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {}
+        }
+      ],
+      "publishers": []
     }
   },
   "devDependencies": {
