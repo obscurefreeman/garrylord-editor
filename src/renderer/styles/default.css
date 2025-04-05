@@ -488,6 +488,9 @@ button:hover {
   border: 1px solid var(--border-color);
   border-radius: 0.25rem;
   transition: all var(--transition-speed) linear;
+  margin: 1rem 0;
+  width: 100%;
+  height: calc(80vh - 6rem);
 }
 
 #publish-iframe:hover {
