@@ -27,6 +27,7 @@
     "electron-icon-builder": "^2.0.1",
     "electron-squirrel-startup": "^1.0.1",
     "fs-extra": "^11.3.0",
+    "giscus": "^1.6.0",
     "tar": "^6.2.1"
   }
 }

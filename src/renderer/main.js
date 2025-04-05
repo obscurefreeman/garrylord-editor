@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const jsonError = document.getElementById('json-error')
     const toggleViewBtn = document.getElementById('toggle-view-btn')
     const structuredView = document.getElementById('structured-view')
+    const publishBtn = document.getElementById('publish-btn')
+    const publishModal = document.getElementById('publish-modal')
   
     let currentFile = null
   
@@ -38,6 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     closeModal.addEventListener('click', () => templateModal.style.display = 'none')
     themeSelect.addEventListener('change', changeTheme)
     toggleViewBtn.addEventListener('click', toggleView)
+    publishBtn.addEventListener('click', showPublishModal)
   
     // 加载文件列表
     async function loadFiles() {
@@ -564,4 +567,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 更新切换按钮的初始文本
     toggleViewBtn.textContent = 'Raw JSON'
+
+    function showPublishModal() {
+      const publishModal = document.getElementById('publish-modal');
+      publishModal.style.display = 'block';
+
+      const publishIframe = document.getElementById('publish-iframe');
+      publishIframe.src = 'https://obscurefreeman.github.io/npc_complex_chat/';
+      document.querySelector('#publish-modal .close-modal').addEventListener('click', () => {
+        publishIframe.src = ''; // 清空iframe内容
+        publishModal.style.display = 'none';
+      });
+    }
 })

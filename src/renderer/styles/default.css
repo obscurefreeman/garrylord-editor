@@ -482,3 +482,15 @@ button:hover {
 .modal-content button#confirm-delete-btn:hover {
   background-color: var(--theme-color-outline);
 }
+
+#publish-iframe {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  transition: all var(--transition-speed) linear;
+}
+
+#publish-iframe:hover {
+  border-color: var(--theme-color);
+  box-shadow: 0 0 0 0.05rem var(--theme-color-outline);
+}
