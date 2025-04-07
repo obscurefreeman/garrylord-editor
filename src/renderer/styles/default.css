@@ -408,8 +408,34 @@ button:hover {
 }
 
 .template-btn {
-  padding: 0.625rem;
+  padding: 1rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  color: var(--text-color);
   cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.template-btn:hover {
+  background-color: var(--active-item-bg);
+  border-color: var(--theme-color);
+  box-shadow: 0 0 0 0.05rem var(--theme-color-outline);
+}
+
+.template-btn .template-name {
+  font-weight: 500;
+  color: var(--heading1-color);
+}
+
+.template-btn .template-description {
+  font-size: 0.9em;
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 /* Custom scrollbar styles */

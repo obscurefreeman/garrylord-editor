@@ -1,5 +1,6 @@
 {
     "info": {
+        "name": "NPC 自定义名称模板",
         "author": "此处填写作者名称",
         "description": "一个简单的自定义 NPC 名称池。"
     },

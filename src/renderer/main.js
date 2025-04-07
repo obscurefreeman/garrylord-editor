@@ -349,16 +349,36 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (templates.length === 0) {
         templateList.innerHTML = '<p>No templates found</p>'
       } else {
-        templates.forEach(template => {
-          const templateBtn = document.createElement('button')
-          templateBtn.className = 'template-btn'
-          templateBtn.textContent = template.name
-          templateBtn.addEventListener('click', () => {
-            createFromTemplate(template.name)
-            templateModal.style.display = 'none'
-          })
-          templateList.appendChild(templateBtn)
-        })
+        for (const template of templates) {
+          try {
+            const templateContent = await window.electronAPI.loadTemplate(template.name)
+            const templateBtn = document.createElement('button')
+            templateBtn.className = 'template-btn'
+            
+            // 创建模板名称元素
+            const nameElement = document.createElement('div')
+            nameElement.className = 'template-name'
+            // 使用模板内容中的info.name作为显示名称，如果不存在则使用默认名称
+            const displayName = templateContent.info?.name || 'Unnamed Template'
+            nameElement.textContent = displayName
+            
+            // 创建描述元素
+            const descElement = document.createElement('div')
+            descElement.className = 'template-description'
+            descElement.textContent = templateContent.info?.description || 'No description available.'
+            
+            templateBtn.appendChild(nameElement)
+            templateBtn.appendChild(descElement)
+            
+            templateBtn.addEventListener('click', () => {
+              createFromTemplate(template.name)
+              templateModal.style.display = 'none'
+            })
+            templateList.appendChild(templateBtn)
+          } catch (err) {
+            console.error(`Failed to load template ${template.name}:`, err)
+          }
+        }
       }
       
       templateModal.style.display = 'block'
